@@ -11,6 +11,8 @@
 		4529051B269D8A0F00525413 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4529051A269D8A0F00525413 /* ContentView.swift */; };
 		4529051D269D8A1000525413 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4529051C269D8A1000525413 /* Assets.xcassets */; };
 		45290520269D8A1000525413 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4529051F269D8A1000525413 /* Preview Assets.xcassets */; };
+		4529052A269D8BAE00525413 /* TramDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45290529269D8BAE00525413 /* TramDashboardView.swift */; };
+		4529052C269D8D5800525413 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4529052B269D8D5800525413 /* Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		4529051C269D8A1000525413 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4529051F269D8A1000525413 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		45290521269D8A1000525413 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45290529269D8BAE00525413 /* TramDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TramDashboardView.swift; sourceTree = "<group>"; };
+		4529052B269D8D5800525413 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,8 @@
 			children = (
 				45290518269D8A0F00525413 /* TramsApp.swift */,
 				4529051A269D8A0F00525413 /* ContentView.swift */,
+				45290529269D8BAE00525413 /* TramDashboardView.swift */,
+				4529052B269D8D5800525413 /* Utilities.swift */,
 				4529051C269D8A1000525413 /* Assets.xcassets */,
 				45290521269D8A1000525413 /* Info.plist */,
 				4529051E269D8A1000525413 /* Preview Content */,
@@ -139,6 +145,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4529051B269D8A0F00525413 /* ContentView.swift in Sources */,
+				4529052A269D8BAE00525413 /* TramDashboardView.swift in Sources */,
+				4529052C269D8D5800525413 /* Utilities.swift in Sources */,
 				45290519269D8A0F00525413 /* TramsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
