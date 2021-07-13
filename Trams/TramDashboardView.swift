@@ -15,7 +15,9 @@ struct TramDashboardView: View {
         ScrollView {
             LazyVGrid(columns: columns, spacing: 10) {
                 ForEach(trams, id: \.self) { item in
+                    NavigationLink(destination: RouteDetailPageView(name: item)) {
                     TramRouteButtonView(name: item)
+                    }
                 }
             }
             .padding(.horizontal)
@@ -30,11 +32,12 @@ struct TramRouteButtonView: View {
     var body: some View {
         Text(name)
             .font(Font.system(.title2, design: .monospaced).bold())
+            .foregroundColor(.primary)
             .frame(width: 45, height: 30)
             .padding()
             .background(
                 ZStack {
-                RoundedRectangle(cornerRadius: 10, style: .continuous).fill(color.opacity(0.5))
+                RoundedRectangle(cornerRadius: 10, style: .continuous).fill(color.opacity(0.3))
                 
                     RoundedRectangle(cornerRadius: 10, style: .continuous).fill(LinearGradient(gradient: Gradient(colors: [color.opacity(0.2), color.opacity(0.5)]), startPoint: .top, endPoint: .bottom))
                     
