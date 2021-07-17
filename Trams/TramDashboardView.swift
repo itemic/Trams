@@ -23,7 +23,10 @@ struct TramDashboardView: View {
                 LazyVGrid(columns: columns, spacing: 10) {
                     ForEach(trams, id: \.self) { item in
                         
+                        NavigationLink(destination: RouteView(item: item)) {
                         TramRouteButtonView(name: item)
+                                
+                        }
                         
                     }
                 }
@@ -44,7 +47,7 @@ struct TramRouteButtonView: View {
     var body: some View {
         
         VStack(alignment: .leading) {
-            HStack {
+            HStack(alignment: .center) {
                 ZStack(alignment: .center) {
                     Text("000").hidden()
                     Text(name)
@@ -53,18 +56,16 @@ struct TramRouteButtonView: View {
                 .font(Font.system(.title3).bold().monospacedDigit())
                 .padding(4)
                 .background(
-                    
                         RoundedRectangle(cornerRadius: 10, style: .continuous).fill(color.opacity(0.3))
-                    
                 )
                 
                 Spacer()
-//                Image(systemName: "star")
+                Image(systemName: "star")
             }
             
-            Text("Melbourne University - Malvern East")
-                .font(Font.system(.callout))
-                .tracking(-0.5)
+                Text("Melbourne University - Malvern East")
+                .font(Font.system(.callout)).multilineTextAlignment(.leading)
+            
             
         }
         
