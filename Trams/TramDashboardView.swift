@@ -7,22 +7,34 @@
 
 import SwiftUI
 
+
+
+
 struct TramDashboardView: View {
+    @State private var query = ""
+    @State private var showSheet = false
     let trams = ["1", "3", "3a", "5", "5a", "6", "11",
-    "12", "16", "19", "30", "35", "48", "57", "58", "59", "64", "67", "70", "72", "75", "78", "82", "86", "86a", "96", "109"]
-    let columns = [GridItem(.adaptive(minimum: 70, maximum: 100))]
+                 "12", "16", "19", "30", "35", "48", "57", "58", "59", "64", "67", "70", "72", "75", "78", "82", "86", "86a", "96", "109"]
+    let columns = [GridItem(.adaptive(minimum: 150)), GridItem(.adaptive(minimum: 150))]
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: columns, spacing: 10) {
-                ForEach(trams, id: \.self) { item in
-                    NavigationLink(destination: RouteDetailPageView(name: item)) {
-                    TramRouteButtonView(name: item)
+        ZStack {
+            Color.brown.opacity(0.2).ignoresSafeArea()
+            ScrollView {
+                LazyVGrid(columns: columns, spacing: 10) {
+                    ForEach(trams, id: \.self) { item in
+                        
+                        TramRouteButtonView(name: item)
+                        
                     }
                 }
+                .padding(.horizontal)
             }
-            .padding(.horizontal)
+        
+            .navigationTitle("Routes").navigationBarTitleDisplayMode(.large)
+            
         }
-            .navigationTitle("Routes")
+        .searchable(text: $query)
+        .onChange(of: query) {print($0)}
     }
 }
 
@@ -30,21 +42,37 @@ struct TramRouteButtonView: View {
     let color: Color = .random
     var name: String
     var body: some View {
-        Text(name)
-            .font(Font.system(.title2, design: .monospaced).bold())
-            .foregroundColor(.primary)
-            .frame(width: 45, height: 30)
-            .padding()
-            .background(
-                ZStack {
-                RoundedRectangle(cornerRadius: 10, style: .continuous).fill(color.opacity(0.3))
-                
-                    RoundedRectangle(cornerRadius: 10, style: .continuous).fill(LinearGradient(gradient: Gradient(colors: [color.opacity(0.2), color.opacity(0.5)]), startPoint: .top, endPoint: .bottom))
-                    
+        
+        VStack(alignment: .leading) {
+            HStack {
+                ZStack(alignment: .center) {
+                    Text("000").hidden()
+                    Text(name)
                 }
-            )
-            .overlay(RoundedRectangle(cornerRadius: 10, style: .continuous).strokeBorder(color, lineWidth: 2))
+                
+                .font(Font.system(.title3).bold().monospacedDigit())
+                .padding(4)
+                .background(
+                    
+                        RoundedRectangle(cornerRadius: 10, style: .continuous).fill(color.opacity(0.3))
+                    
+                )
+                
+                Spacer()
+//                Image(systemName: "star")
+            }
             
+            Text("Melbourne University - Malvern East")
+                .font(Font.system(.callout))
+                .tracking(-0.5)
+            
+        }
+        
+        
+        .foregroundColor(.primary)
+        .padding(10)
+        .background(RoundedRectangle(cornerRadius: 10, style: .continuous).fill(Color.brown.opacity(0.3)))
+        
     }
 }
 

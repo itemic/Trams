@@ -10,19 +10,11 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         
-        TabView {
-            NavigationView {
+        
+        NavigationView {
             TramDashboardView()
-            }
-                .tabItem {
-                    Label("Routes", systemImage: "circle.grid.2x2")
-                }
-            BlankView()
-                .tabItem {
-                    Label("Something", systemImage: "list.dash")
-                }
-            
-        }
+        }.navigationViewStyle(.stack)
+        
         
     }
 }
