@@ -14,6 +14,7 @@
 		4529052A269D8BAE00525413 /* TramDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45290529269D8BAE00525413 /* TramDashboardView.swift */; };
 		4529052C269D8D5800525413 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4529052B269D8D5800525413 /* Utilities.swift */; };
 		4532862726A2B53E00099962 /* RouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4532862626A2B53E00099962 /* RouteView.swift */; };
+		4549DF2A26AE7A16005A8BD7 /* TramModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4549DF2926AE7A16005A8BD7 /* TramModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		45290529269D8BAE00525413 /* TramDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TramDashboardView.swift; sourceTree = "<group>"; };
 		4529052B269D8D5800525413 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		4532862626A2B53E00099962 /* RouteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteView.swift; sourceTree = "<group>"; };
+		4549DF2926AE7A16005A8BD7 /* TramModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TramModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				45290518269D8A0F00525413 /* TramsApp.swift */,
+				4549DF2926AE7A16005A8BD7 /* TramModel.swift */,
 				4529051A269D8A0F00525413 /* ContentView.swift */,
 				45290529269D8BAE00525413 /* TramDashboardView.swift */,
 				4532862626A2B53E00099962 /* RouteView.swift */,
@@ -152,6 +155,7 @@
 				4529052A269D8BAE00525413 /* TramDashboardView.swift in Sources */,
 				4529052C269D8D5800525413 /* Utilities.swift in Sources */,
 				45290519269D8A0F00525413 /* TramsApp.swift in Sources */,
+				4549DF2A26AE7A16005A8BD7 /* TramModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

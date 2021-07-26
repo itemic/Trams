@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct RouteView: View {
-    var item: String
+    var route: TramRoute
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("wow it's route \(route.routeNumber)")
     }
 }
 
-struct RouteView_Previews: PreviewProvider {
-    static var previews: some View {
-        RouteView(item: "3")
-    }
-}
+//struct RouteView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RouteView(item: "3")
+//    }
+//}
