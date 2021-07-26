@@ -42,17 +42,25 @@ struct TramDashboardView: View {
                   TramRoute(routeNumber: "109", routeName: "Box Hill – Port Melbourne", routeColor: Color(red: 232/255, green: 119/255, blue: 34/255))]
     
     
-    let trams = ["1", "3", "3a", "5", "5a", "6", "11",
-                 "12", "16", "19", "30", "35", "48", "57", "58", "59", "64", "67", "70", "72", "75", "78", "82", "86", "86a", "96", "109"]
+    var searchResults: [TramRoute] {
+        if query.isEmpty {
+            return routes
+        } else {
+            return routes.filter { $0.routeName.lowercased().contains(query.lowercased()) || $0.routeNumber.contains(query)}
+        }
+    }
+    
+    
     let columns = [GridItem(.adaptive(minimum: 150)), GridItem(.adaptive(minimum: 150))]
     var body: some View {
         ZStack {
             Color.brown.opacity(0.2).ignoresSafeArea()
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 10) {
-                    ForEach(routes) { route in
+                    ForEach(searchResults) { route in
                         
                         NavigationLink(destination: RouteView(route: route)) {
+                        
                             TramRouteButtonView(route: route)
                                 
                         }
@@ -72,6 +80,8 @@ struct TramDashboardView: View {
 
 struct TramRouteButtonView: View {
     var route: TramRoute
+    
+    
     var body: some View {
         
         VStack(alignment: .leading) {
