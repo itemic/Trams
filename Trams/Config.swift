@@ -7,5 +7,5 @@
 
 import Foundation
 
-let APPLICATION_ID = "abcd"
-let APPLICATION_KEY = "abcd"
+let APPLICATION_ID = "abcde"
+let APPLICATION_KEY = "abcde"
