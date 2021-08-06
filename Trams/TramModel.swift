@@ -29,4 +29,17 @@ struct TramRoute: Identifiable {
     }
 }
 
-
+struct Routes: Decodable {
+    var routes: [Route]
+}
+struct Route: Identifiable, Decodable {
+    
+    var id: Int {
+        route_id
+    }
+    
+    var route_type: Int
+    var route_id: Int
+    var route_name: String
+    var route_number: String
+}

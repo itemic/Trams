@@ -13,6 +13,7 @@ import SwiftUI
 struct TramDashboardView: View {
     @State private var query = ""
     @State private var showSheet = false
+    @ObservedObject var vm = TramRoutesViewModel(client: NetworkManager())
     
     let routes = [TramRoute(routeNumber: "1", routeName: "East Coburg – South Melbourne Beach", routeColor: Color(red: 181/255, green: 189/255, blue: 0/255)),
                   TramRoute(routeNumber: "3", routeName: "Melbourne University – East Malvern", routeColor: Color(red: 141/255, green: 200/255, blue: 232/255)),
@@ -56,6 +57,19 @@ struct TramDashboardView: View {
         ZStack {
             Color.brown.opacity(0.2).ignoresSafeArea()
             ScrollView {
+                Button("Test") {
+//                    NetworkManager().authenticate()
+                }.buttonStyle(.bordered)
+                    .task {
+                        do {
+                            try await vm.load()
+                        } catch {
+                            print("Error")
+                        }
+                    }
+                ForEach(vm.routes) {item in
+                    Text(item.route_number)
+                }
                 LazyVGrid(columns: columns, spacing: 10) {
                     ForEach(searchResults) { route in
                         
@@ -85,6 +99,7 @@ struct TramRouteButtonView: View {
     var body: some View {
         
         VStack(alignment: .leading) {
+            
             HStack(alignment: .center) {
                 ZStack(alignment: .center) {
                     Text("000").hidden()
