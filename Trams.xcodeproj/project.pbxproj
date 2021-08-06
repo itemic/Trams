@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4516668A26BCDA5A00A0826D /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4516668926BCDA5A00A0826D /* Config.swift */; };
 		45290519269D8A0F00525413 /* TramsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45290518269D8A0F00525413 /* TramsApp.swift */; };
 		4529051B269D8A0F00525413 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4529051A269D8A0F00525413 /* ContentView.swift */; };
 		4529051D269D8A1000525413 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4529051C269D8A1000525413 /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4516668926BCDA5A00A0826D /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		45290515269D8A0F00525413 /* Trams.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trams.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45290518269D8A0F00525413 /* TramsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TramsApp.swift; sourceTree = "<group>"; };
 		4529051A269D8A0F00525413 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				45290529269D8BAE00525413 /* TramDashboardView.swift */,
 				4532862626A2B53E00099962 /* RouteView.swift */,
 				4529052B269D8D5800525413 /* Utilities.swift */,
+				4516668926BCDA5A00A0826D /* Config.swift */,
 				4529051C269D8A1000525413 /* Assets.xcassets */,
 				45290521269D8A1000525413 /* Info.plist */,
 				4529051E269D8A1000525413 /* Preview Content */,
@@ -153,6 +156,7 @@
 				4529051B269D8A0F00525413 /* ContentView.swift in Sources */,
 				4532862726A2B53E00099962 /* RouteView.swift in Sources */,
 				4529052A269D8BAE00525413 /* TramDashboardView.swift in Sources */,
+				4516668A26BCDA5A00A0826D /* Config.swift in Sources */,
 				4529052C269D8D5800525413 /* Utilities.swift in Sources */,
 				45290519269D8A0F00525413 /* TramsApp.swift in Sources */,
 				4549DF2A26AE7A16005A8BD7 /* TramModel.swift in Sources */,
