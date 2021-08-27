@@ -11,6 +11,7 @@ import SwiftUI
 public final class TramRoutesViewModel: ObservableObject {
     @Published var routes: [Route] = []
     
+    
     init(client: NetworkManager) {
         
     }

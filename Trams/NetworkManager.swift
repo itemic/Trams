@@ -25,6 +25,22 @@ public final class NetworkManager {
         return result
     }
     
+    func authenticateForDirection(uri: String = "/v3/directions/route/", id: Int) -> String {
+        let uriWithId = uri + "\(id)?devid=" + appID
+        let signature = uriWithId.hmac(key: appKey)
+        let result = baseURL + uriWithId + "&signature=" + signature
+        print(result)
+        return result
+    }
+    
+    func authenticateForStops(id: Int, direction: Int) -> String {
+        let uriWithId = "/v3/stops/route/\(id)/route_type/1?direction_id=\(direction)&devid=" + appID
+        let signature = uriWithId.hmac(key: appKey)
+        let result = baseURL + uriWithId + "&signature=" + signature
+        print(result)
+        return result
+    }
+    
  
 }
 

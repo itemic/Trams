@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct RouteView: View {
-    var route: TramRoute
-    @State private var direction = "A"
+    var route: Route
+    @State private var direction = 15
     @State private var selectedStop: Int?
+    @ObservedObject var tlVM = TramLineViewModel(client: NetworkManager())
+    
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
             VStack(spacing: 0) {
@@ -18,7 +20,7 @@ struct RouteView: View {
                     HStack {
                         ZStack(alignment: .center) {
                             Text("000").hidden()
-                            Text(route.routeNumber).foregroundColor(route.textColor)
+                            Text(route.route_number).foregroundColor(route.textColor)
                         }
                         .font(Font.system(.title).bold().monospacedDigit())
                         .padding(4)
@@ -29,15 +31,43 @@ struct RouteView: View {
                         Spacer()
                     }
                     Picker("Picker", selection: $direction) {
-                        Text("to \(route.routeName.components(separatedBy: " – ").first ?? "Terminus")").tag("A")
-                        Text("to \(route.routeName.components(separatedBy: " – ").last ?? "Terminus")").tag("B")
+//                        Text("to \(route.routeName.components(separatedBy: " – ").first ?? "Terminus")").tag("A")
+//                        Text("to \(route.routeName.components(separatedBy: " – ").last ?? "Terminus")").tag("B")
+                        ForEach(tlVM.directions) {item in
+                            Text(item.direction_name).tag(item.direction_id)
+                        }
                     }
                     .pickerStyle(.segmented)
+                    .task {
+                        do {
+                            try await tlVM.load(id: route.id)
+                            direction = tlVM.directions[0].direction_id
+                            try await tlVM.updateStops(id: route.id, direction: direction)
+                        } catch {
+                            print("Error")
+                        }
+                    }
                 }
                 .padding()
                 .background(Color.brown.opacity(0.2))
+                .task(id: direction) {
+                    do {
+                        try await tlVM.updateStops(id: route.id, direction: direction)
+                    } catch {
+                        print("error")
+                    }
+                    
+                }
                 
                 List {
+                    ForEach(tlVM.stops.sorted(by: {$0.stop_sequence > $1.stop_sequence})) { stop in
+                        HStack {
+                        Text(stop.stop_name)
+                        }
+                        
+                        
+                    }
+                   
                     ForEach(1..<20) {stop in
                         
                         
@@ -57,7 +87,7 @@ struct RouteView: View {
                                 
                                 ZStack(alignment: .center) {
                                     Text("0000").hidden()
-                                    Text(route.routeNumber).foregroundColor(route.textColor)
+                                    Text(route.route_number).foregroundColor(route.textColor)
                                 }
                                 .font(Font.system(.caption2).bold().monospacedDigit())
                                 //                            .padding(4)
